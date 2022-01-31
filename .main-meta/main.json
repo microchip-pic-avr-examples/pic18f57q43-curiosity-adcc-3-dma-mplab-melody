@@ -21,7 +21,7 @@
             "semverRange": ">=1.13.208"
         },
         "configurator": {
-            "name": "MPLAB Code Configurator",
+            "name": "MCC",
             "semverRange": ">=5.1.0"
         },
         "device": {
