@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.atdf": "xml",
+        ".atdf": "xml",
+        ".pk4": "xml",
+        ".pkg": "xml",
+        ".pic": "xml",
+        "serout.h": "c",
+        "adccontext.h": "c"
+    }
+}
