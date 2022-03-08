@@ -36,7 +36,6 @@
         },
         "author": "Kevin Kilzer",
         "peripherals": ["ADCC", "TMR0", "DMA"],
-        "keywords": ["Melody", "ADCC", "DMA"],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
