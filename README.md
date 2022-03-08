@@ -2,7 +2,7 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# PIC18F57Q43-curiosity-adcc-3-dma-mplab-melody here
+# PIC18F57Q43-curiosity-adcc-3-dma-mplab-melody
 
 This project highlights the use of the PIC18-Q43 family’s DMA peripherals to swap the context of the ADCC on the fly. One channel of DMA copies out the current context of the ADCC, a second channel copies in a new conversion configuration, and a third copies in the next channel's context. The ADCC conversion is triggered by TMR0, and the ADCC conversion-complete triggers all DMA channels. Priority is assigned to the DMA transfers using the system arbiter, so that the DMA operate in the correct order.
 
@@ -10,12 +10,12 @@ This project highlights the use of the PIC18-Q43 family’s DMA peripherals to s
 - [PIC18F-Q43 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q43-product-family)
 
 ## Software Used
-- MPLAB® X IDE 5.50.0 or newer [(MPLAB® X IDE 5.50)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=pic18f57q43-curiosity-adcc-3-dma-mplab-melody-github)
+- MPLAB® X IDE 6.00.0 or newer [(MPLAB® X IDE 6.00)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=pic18f57q43-curiosity-adcc-3-dma-mplab-melody-github)
 - MPLAB® XC8 2.32.0 or newer compiler [(MPLAB® XC8 2.32)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=pic18f57q43-curiosity-adcc-3-dma-mplab-melody-github)
-- MPLAB® X IDE 5.xx or newer [(MPLAB® X Melody 5.xx)](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- MPLAB® X MCC 5.xx or newer [(MPLAB® X Melody 5.xx)](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
 
 ## Hardware Used
-- PIC18F57Q42 Curiosity Nano [(DM164150)](https://www.microchip.com/en-us/development-tool/DM164150)
+- PIC18F57Q43 Curiosity Nano [(DM164150)](https://www.microchip.com/en-us/development-tool/DM164150)
 - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
 - Ambient Light Click board™ [(MIKROE-1890)](https://www.mikroe.com/ambient-Click)
 - UVC Click board™ [(MIKROE-4144)](https://www.mikroe.com/uvc-Click)
@@ -122,7 +122,7 @@ void UART2_Initialize(void)
 ```
 
 ## adConfig[n] configuration and data arrays:
-The configuration data table is an n-element GPR array; for this project N=3. There is one configuration for each of the three sensors, but any number of configurations may be provided. NUM_ADCONFIG will be determined by the compiler and each element is preloaded with the appropriate configuration values. The data structure members have a 1:1 correspondence with the special function registers (SFR) in the ADCC. The configuration data includes the channel selector, acquisition and precharge times, and other parameters.
+The configuration data table is an N-element GPR array; for this project N=3. There is one configuration for each of the three sensors, but any number of configurations may be provided. NUM_ADCONFIG will be determined by the compiler and each element is preloaded with the appropriate configuration values. The data structure members have a 1:1 correspondence with the special function registers (SFR) in the ADCC. The configuration data includes the channel selector, acquisition and precharge times, and other parameters.
 
 *Note:* Some elements, like ADACQ, are shown as 16-bit members. These correspond to two 8-bit SFRs in the ADCC register map that are accessed using two 8-bit data transfers in little-endian order. This is a feature of many PIC register maps. 
 
@@ -245,7 +245,7 @@ void DMAforADC_Initialize(void)
 ## main loop and UART functions:
 After initializations, the main program is responsible for pulling the data from the adContext array and formatting it for serial transmission. DMA2 and DMA3 are manually run once at startup to preload the ADCC for the first conversion, moving the DMA index to the second config/context set in the array. A conversion is triggered by TMR0 roll over, and ADC completion then triggers the DMA data transfers in the order defined by priority.
 
-*Note:* The DMA interrupt flag is polled from the main routine because data is to transmitted serially, which would make the interrupt take a very long time to complete. Without the requirement to transmit serially, an interrupt service routine could be used to capture the data from adContext[n].
+*Note:* The DMA interrupt flag is polled from the main routine because data is transmitted serially, which would make the interrupt take a very long time to complete. Without the requirement to transmit serially, an interrupt service routine could be used to capture the data from adContext[n].
 
 ```c
 void main(void)

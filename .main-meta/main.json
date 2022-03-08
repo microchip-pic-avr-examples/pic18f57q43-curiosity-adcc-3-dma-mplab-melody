@@ -4,10 +4,10 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-curiosity-adcc-3-dma-mplab-melody",
-        "version": "1.0.1",
+        "version": "1.0.0",
         "displayName": "ADC Context Conversion Using 3 DMA Channels for PIC18F57Q43 Using Melody",
         "projectName": "pic18f57q43-curiosity-adcc-3-dma-mplab-melody",
-        "shortDescription": "MPLabX Melody project using the DMA to record conversions from 3 different ADC contexts",
+        "shortDescription": "MPLABX Melody project using the DMA to record conversions from 3 different ADC contexts",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=6.00.0"
