@@ -10,7 +10,7 @@
         "shortDescription": "MPLABX Melody project using the DMA to record conversions from 3 different ADC contexts",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=6.00.0"
+            "semverRange": ">=6.0.0"
         },
         "compiler": [{
             "name": "XC8",
@@ -36,6 +36,7 @@
         },
         "author": "Kevin Kilzer",
         "peripherals": ["ADCC", "TMR0", "DMA"],
+        "keywords": ["Melody", "ADCC", "DMA"],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
