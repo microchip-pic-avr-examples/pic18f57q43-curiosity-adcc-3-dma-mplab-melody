@@ -43,7 +43,7 @@ A single jumper wire between the device UART and the Nano serial Rx is also need
 ![Click boards installed](images/ADCC_DMA.jpg)
 
 ### Serial Jumper Setup:
-![complete project](images/Serial_Connection.jpg)
+![complete project](images/serial_connection.jpg)
 
 ## Operation
 
@@ -70,7 +70,7 @@ The output of the ADCC is converted to ASCII and transmitted through the UART to
 The TMR0 module is configured such that the output period is 64 ms, which will provide a 15 Hz ADCC sample rate. The clock source is Fosc/4, operating at 1MHz with a 512:1 prescaler. The slow sample rate was used to provide sufficient time for the serial transmit time for each 16 bit number. 6 digits of ascii (0x1234) + comma and space = 8 characters (10 bits) or 80 bits at 9600 or 8.3ms.
 
 ### Melody TMR0 Editor Window:
-![TMR0 Melody](images/pic18f57q43-adcc-3-dma-tmr0.png)
+![TMR0 Melody](images/pic18f57q43-adcc-3-dma-tmr0.PNG)
 
 ```c
 void TMR0_Initialize(void)
@@ -88,7 +88,7 @@ The UART module is configured to provide a 9600 baud serial interface for displa
 *Note:* To connect the UART to the on-Nano serial connection, a jumper wire is needed between pins 3 and 20 of the Nano. This connects the UART TX pin to the Nano RX.
 
 ### Melody UART Editor Window:
-![UART Melody](images/pic18f57q43-adcc-3-dma-uart.png)
+![UART Melody](images/pic18f57q43-adcc-3-dma-uart.PNG)
 
 ```c
 void UART2_Initialize(void)
